@@ -1,1 +1,10 @@
-<div>로그인부분</div>
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div>로그인부분</div>
+</form>
+{% endblock %}
