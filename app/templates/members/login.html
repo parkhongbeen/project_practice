@@ -1,10 +1,40 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block head %}
-{% endblock %}
+{% extends "base.html" %}
 {% block content %}
-<form action="" method="post">
-    {% csrf_token %}
-    <div>로그인부분</div>
-</form>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        <h1>로그인</h1>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        {{error}}
+    </div>
+</div>
+<div class="row mt-1">
+    <div class="col-4">
+        <form method="POST" action=".">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{field.id_for_label }}">{{field.label}}</label>
+                <input type="{{field.field.widget.input_type}}" class="form-control" id="{{field.id_for_label }}"
+                       placeholder="{{field.label}}" name="{{field.name}}"/>
+            </div>
+            {% if field.errors %}
+            <span style="color: red">{{field.errors}}</span>
+            {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">로그인</button>
+            <button type="submit" class="btn btn-primary">아이디찾기</button>
+            <button type="submit" class="btn btn-primary">비밀번호찾기</button>
+        </form>
+            <hr>
+        <a href="" class="btn btn-outline-primary mb-2">Naver로그인</a>
+        <a href="" class="btn btn-outline-primary mb-2">FaceBook로그인</a>
+        <div>
+            <a href="" class="btn btn-outline-primary mb-2">회원가입</a>
+        </div>
+    </div>
+
+</div>
 {% endblock %}
