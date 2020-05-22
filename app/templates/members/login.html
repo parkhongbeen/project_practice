@@ -33,7 +33,10 @@
             <hr>
         <div>
             <a href="{% url 'signup' %}" class="btn btn-outline-primary mb-2">회원가입</a>
-            <a href="{{ login_url }}" class="btn btn-outline-success mb-2">NAVER로 로그인</a>
+            <a href="{{ n_login_url }}" class="btn btn-outline-success mb-2">NAVER 로그인</a>
+            <a href="https://www.facebook.com/v2.11/dialog/oauth?client_id={{ app_id }}&
+            redirect_uri=http://localhost:8000/members/facebook-login">
+                FACEBOOK 로그인</a>
         </div>
     </div>
 
